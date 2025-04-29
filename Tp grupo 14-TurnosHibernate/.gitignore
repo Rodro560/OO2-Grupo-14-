@@ -1,1 +1,11 @@
 /bin/
+#Configuracion local
+.classpath    
+#Config interna de eclipse
+.project 
+#Carpeta oculta
+.settings/ 
+#Archivos personalizados
+*.cfg    
+#Archivos log generados
+*.log
