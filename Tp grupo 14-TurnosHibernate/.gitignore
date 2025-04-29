@@ -6,6 +6,6 @@
 #Carpeta oculta
 .settings/ 
 #Archivos personalizados
-*.cfg    
+*.cfg.xml
 #Archivos log generados
 *.log
