@@ -1,22 +1,22 @@
 package datos;
 
-
 public class Especificacion {
 	
 	private long idEspecificacion;
     private EnumRubro rubro;
     private String detalles;
     private String personalInvolucrado;
+    private Servicio servicio;
     
 	public Especificacion() {}
 
-	public Especificacion(long idEspecificacion, EnumRubro rubro, String detalles, String personalInvolucrado) {
+	public Especificacion(long idEspecificacion, EnumRubro rubro, String detalles, String personalInvolucrado, Servicio servicio) {
 		super();
 		this.idEspecificacion = idEspecificacion;
 		this.rubro = rubro;
 		this.detalles = detalles;
 		this.personalInvolucrado = personalInvolucrado;
-		
+		this.servicio = servicio;
 	}
 
 	public long getIdEspecificacion() {
@@ -49,6 +49,13 @@ public class Especificacion {
 
 	public void setDetallesDelPersonal(String detallesDelPersonal) {
 		this.personalInvolucrado = detallesDelPersonal;
+	}
+	
+	public Servicio getServicio() {
+		return servicio;
+	}
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
 	}
 
 	@Override
