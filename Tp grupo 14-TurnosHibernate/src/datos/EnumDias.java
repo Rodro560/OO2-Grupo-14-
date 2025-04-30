@@ -7,8 +7,8 @@ public enum EnumDias {
 	MIERCOLES,
 	JEUVES,
 	VIENES,
-	SABADO;
-	//DOMNINGO??
+	SABADO,
+	DOMNINGO;
 	
 
 }
