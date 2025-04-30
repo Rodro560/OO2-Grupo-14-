@@ -1,6 +1,5 @@
 package datos;
 
-import java.util.Objects;
 
 public class Especificacion {
 	
