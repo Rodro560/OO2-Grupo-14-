@@ -16,7 +16,7 @@ public class Turno {
 	public Turno() {}
 
 	public Turno(int idTurnos, LocalDate fecha, LocalTime hora, EstadoTurno estado, Cliente cliente,
-			Disponibilidad disponibilidad) {
+			Disponibilidad disponibilidad, Servicio servicio) {
 		super();
 		this.idTurnos = idTurnos;
 		this.fecha = fecha;
@@ -24,6 +24,7 @@ public class Turno {
 		this.estado = estado;
 		this.cliente = cliente;
 		this.disponibilidad = disponibilidad;
+		this.servicio = servicio;
 	}
 
 	public int getIdTurnos() {
@@ -74,10 +75,18 @@ public class Turno {
 		this.disponibilidad = disponibilidad;
 	}
 
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
 	@Override
 	public String toString() {
 		return "Turno [idTurnos=" + idTurnos + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado
-				+ ", cliente=" + cliente + ", disponibilidad=" + disponibilidad + "]";
+				+ ", cliente=" + cliente + ", disponibilidad=" + disponibilidad +", servicio="+ servicio + "]";
 	}
 	
 	
