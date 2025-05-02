@@ -1,5 +1,6 @@
 package datos;
 
+
 public class Perfil {
 	
 	private int idPerfil;
@@ -9,12 +10,12 @@ public class Perfil {
 	
 	public Perfil() {}
 
-	public Perfil(int idPerfil, int telefono, String direccion, Cliente cliente) {
+	public Perfil(int idPerfil, int telefono, String direccion, Usuario usuario) {
 		super();
 		this.idPerfil = idPerfil;
 		this.telefono = telefono;
 		this.direccion = direccion;
-		this.cliente = cliente;
+		this.usuario = usuario;
 	}
 
 	public int getIdPerfil() {
@@ -41,18 +42,18 @@ public class Perfil {
 		this.direccion = direccion;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Usuario getCliente() {
+		return usuario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setCliente(Usuario cliente) {
+		this.usuario = cliente;
 	}
 
 	@Override
 	public String toString() {
-		return "Perfil [idPerfil=" + idPerfil + ", telefono=" + telefono + ", direccion=" + direccion + ", cliente="
-				+ cliente + "]";
+		return "Perfil [idPerfil=" + idPerfil + ", telefono=" + telefono + ", direccion=" + direccion + ", usuario="
+				+ usuario + "]";
 	}
 
 }
