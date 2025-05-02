@@ -11,6 +11,7 @@ public class Turno {
 	private EstadoTurno estado;
 	private Cliente cliente;
 	private Disponibilidad disponibilidad;
+	private Servicio servicio;
 	
 	public Turno() {}
 

@@ -5,7 +5,7 @@ public class Perfil {
 	private int idPerfil;
 	private int telefono;
 	private String direccion;
-	private Cliente cliente;
+	private  Usuario usuario;
 	
 	public Perfil() {}
 
