@@ -9,7 +9,7 @@
 		</id>
 		<property name="nombre" column="nombre" type="string"/>
 		<property name="descripcion" column="descripcion" type="string"/>
-		<property name="durecionMin" column="durecionMin" type="int"/>
+		<property name="duracionMin" column="duracionMin" type="int"/>
 		<property name="precio" column="precio" type="float"/>
 		<many-to-one name="prestador" class="datos.Prestador" column="idUsuario" not-null="true"/>
 		<one-to-one name="especificacion" class="datos.Especificacion"/>

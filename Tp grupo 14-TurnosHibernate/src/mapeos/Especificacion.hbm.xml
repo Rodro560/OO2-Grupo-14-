@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="datos.Especificacion" table="especificacion">
+		<id name="idEspecificacion" column="idEspecificacion">
+			<generator class="identity"/>
+		</id>
+		<property name="rubro" column="rubro">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">datos.EnumRubro</param>
+				<param name="useOrdinal">false</param>
+			</type>
+		</property>
+		<property name="detalles" column="detalles" type="string"/>
+		<property name="personalInvolucrado" column="personalInvolucrado" type="string"/>
+		<one-to-one name="servicio" class="datos.Servicio" property-ref="especificacion"/>
+	</class>
+</hibernate-mapping>

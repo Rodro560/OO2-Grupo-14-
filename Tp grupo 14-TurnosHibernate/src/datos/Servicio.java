@@ -8,7 +8,7 @@ public class Servicio {
 	private long idServicio;
 	private String nombre;
 	private String descripcion;
-	private int durecionMin;
+	private int duracionMin;
 	private float precio;
 	private Prestador prestador;
 	private Especificacion especificacion;
@@ -16,13 +16,13 @@ public class Servicio {
 	
 	public Servicio() {}
 
-	public Servicio(long idServicio, String nombre, String descripcion, int durecionMin, float precio,
+	public Servicio(long idServicio, String nombre, String descripcion, int duracionMin, float precio,
 			Prestador prestador, Especificacion especificacion) {
 		super();
 		this.idServicio = idServicio;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.durecionMin = durecionMin;
+		this.duracionMin = duracionMin;
 		this.precio = precio;
 		this.prestador = prestador;
 		this.especificacion=especificacion;
@@ -54,11 +54,11 @@ public class Servicio {
 	}
 
 	public int getDurecionMin() {
-		return durecionMin;
+		return duracionMin;
 	}
 
-	public void setDurecionMin(int durecionMin) {
-		this.durecionMin = durecionMin;
+	public void setDurecionMin(int duracionMin) {
+		this.duracionMin = duracionMin;
 	}
 
 	public float getPrecio() {
@@ -96,7 +96,7 @@ public class Servicio {
 	@Override
 	public String toString() {
 		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", durecionMin=" + durecionMin + ", precio=" + precio + ", prestador=" + prestador +especificacion.toString()+ "]";
+				+ ", duracionMin=" + duracionMin + ", precio=" + precio + ", prestador=" + prestador +especificacion.toString()+ "]";
 	}
 
 }

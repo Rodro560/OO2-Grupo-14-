@@ -7,7 +7,7 @@
 		<id column="idDisponibilidad" name="idDisponibilidad">
 			<generator class="identity"></generator>
 		</id>
-		<property name="diaSemana" column="diaSemana" type="enum">
+		<property name="diaSemana" column="diaSemana">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">datos.EnumDias</param>
 				<param name="useOrdinal">false</param>
@@ -15,7 +15,7 @@
 		</property>
 		<property name="horaInicio" column="horaInicio" type="java.time.LocalTime"/>
         <property name="horaFin" column="horaFin" type="java.time.LocalTime"/>
-        <set name="lstServicios" table="servicioDisponibilidad" cascade="save-update" lazy="false" order-by="idServicio asc" inverse="true">
+        <set name="lstServicios" table="servicio_disponibilidad" cascade="save-update" lazy="false" order-by="idServicio asc" inverse="true">
 			<key column="idDisponibilidad" not-null="true"/>  
 			<many-to-many class="datos.Servicio" column="idServicio"/>
         </set>
