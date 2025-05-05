@@ -5,7 +5,7 @@ import java.time.LocalTime;
 
 public class Turno {
 	
-	private int idTurnos;
+	private int idTurno;
 	private LocalDate fecha;
 	private LocalTime hora;
 	private EstadoTurno estado;
@@ -15,10 +15,10 @@ public class Turno {
 	
 	public Turno() {}
 
-	public Turno(int idTurnos, LocalDate fecha, LocalTime hora, EstadoTurno estado, Cliente cliente,
+	public Turno(int idTurno, LocalDate fecha, LocalTime hora, EstadoTurno estado, Cliente cliente,
 			Disponibilidad disponibilidad, Servicio servicio) {
 		super();
-		this.idTurnos = idTurnos;
+		this.idTurno = idTurno;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.estado = estado;
@@ -28,11 +28,11 @@ public class Turno {
 	}
 
 	public int getIdTurnos() {
-		return idTurnos;
+		return idTurno;
 	}
 
-	public void setIdTurnos(int idTurnos) {
-		this.idTurnos = idTurnos;
+	public void setIdTurnos(int idTurno) {
+		this.idTurno = idTurno;
 	}
 
 	public LocalDate getFecha() {
@@ -85,7 +85,7 @@ public class Turno {
 
 	@Override
 	public String toString() {
-		return "Turno [idTurnos=" + idTurnos + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado
+		return "Turno [idTurno=" + idTurno + ", fecha=" + fecha + ", hora=" + hora + ", estado=" + estado
 				+ ", cliente=" + cliente + ", disponibilidad=" + disponibilidad +", servicio="+ servicio + "]";
 	}
 	
