@@ -13,9 +13,9 @@
 		<property name="precio" column="precio" type="float"/>
 		<many-to-one name="prestador" class="datos.Prestador" column="idUsuario" not-null="true"/>
 		<one-to-one name="especificacion" class="datos.Especificacion"/>
-		<set name="lstDisponibilidad" cascade="save-update" table="disponibilidad" order-by="idDisponibilidad asc" inverse="true" lazy="false" fetch="select">
+		<set name="lstDisponibilidad" table="servicio_disponibilidad" cascade="save-update" lazy="false" order-by="idDisponibilidad asc">
 			<key column="idServicio" not-null="true"/>
-			<one-to-many class="datos.Disponibilidad" />
+			<many-to-many class="datos.Disponibilidad" column="idDisponibilidad"/>
 		</set>
 	</class>
 </hibernate-mapping>
