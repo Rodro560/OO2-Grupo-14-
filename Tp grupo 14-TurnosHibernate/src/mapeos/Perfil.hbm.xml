@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="datos.Perfil" table="perfil">
+		<id name="idPerfil" column="idPerfil">
+			<generator class="foreign">
+				<param name="property">usuario</param>
+			</generator>
+		</id>
+		<one-to-one name="usuario" class="datos.Usuario" constrained="true" />
+		<property name="telefono" column="telefono" type="int"/>
+		<property name="direccion" column="direccion" type="string"/>
+	</class>
+</hibernate-mapping>
