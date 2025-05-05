@@ -11,12 +11,13 @@ public class Servicio {
 	private int durecionMin;
 	private float precio;
 	private Prestador prestador;
+	private Especificacion especificacion;
 	private Set<Disponibilidad> lstDisponibilidad;
 	
 	public Servicio() {}
 
 	public Servicio(long idServicio, String nombre, String descripcion, int durecionMin, float precio,
-			Prestador prestador) {
+			Prestador prestador, Especificacion especificacion) {
 		super();
 		this.idServicio = idServicio;
 		this.nombre = nombre;
@@ -24,6 +25,7 @@ public class Servicio {
 		this.durecionMin = durecionMin;
 		this.precio = precio;
 		this.prestador = prestador;
+		this.especificacion=especificacion;
 		this.lstDisponibilidad = new HashSet<Disponibilidad>();
 	}
 
@@ -75,6 +77,14 @@ public class Servicio {
 		this.prestador = prestador;
 	}
 
+	public Especificacion getEspecificacion() {
+		return especificacion;
+	}
+
+	public void setEspecificacion(Especificacion especificacion) {
+		this.especificacion = especificacion;
+	}
+
 	public Set<Disponibilidad> getLstDisponibilidad() {
 		return lstDisponibilidad;
 	}
@@ -86,7 +96,7 @@ public class Servicio {
 	@Override
 	public String toString() {
 		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ ", durecionMin=" + durecionMin + ", precio=" + precio + ", prestador=" + prestador + "]";
+				+ ", durecionMin=" + durecionMin + ", precio=" + precio + ", prestador=" + prestador +especificacion.toString()+ "]";
 	}
 
 }
