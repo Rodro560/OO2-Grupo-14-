@@ -5,7 +5,5 @@
 .project 
 #Carpeta oculta
 .settings/ 
-#Archivos personalizados
-*.cfg.xml
 #Archivos log generados
 *.log
