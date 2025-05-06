@@ -7,3 +7,5 @@
 .settings/ 
 #Archivos log generados
 *.log
+
+*cfg.xml
