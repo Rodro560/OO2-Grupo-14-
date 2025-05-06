@@ -12,6 +12,7 @@ public class Disponibilidad {
 	private LocalTime horaFin;
 	private Set<Servicio> lstServicios;
 	private Set<Turno> lstTurnos;
+	private Servicio servicio;
 	
 	public Disponibilidad() {}
 
@@ -73,10 +74,20 @@ public class Disponibilidad {
 		this.lstTurnos = lstTurnos;
 	}
 
+
+	public Servicio getServicio() {
+		return servicio;
+	}
+
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
 	@Override
 	public String toString() {
 		return "Disponibilidad [idDisponibilidad=" + idDisponibilidad + ", diaSemana=" + diaSemana + ", horaInicio="
-				+ horaInicio + ", horaFin=" + horaFin + "]";
+				+ horaInicio + ", horaFin=" + horaFin + ", lstServicios=" + lstServicios + ", lstTurnos=" + lstTurnos
+				+ ", servicio=" + servicio + "]";
 	}
 	
 	

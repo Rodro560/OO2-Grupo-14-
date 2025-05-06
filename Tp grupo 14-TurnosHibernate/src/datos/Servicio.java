@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Servicio {
 	
-	private long idServicio;
+	private int idServicio;
 	private String nombre;
 	private String descripcion;
 	private int duracionMin;
@@ -16,7 +16,7 @@ public class Servicio {
 	
 	public Servicio() {}
 
-	public Servicio(long idServicio, String nombre, String descripcion, int duracionMin, float precio,
+	public Servicio(int idServicio, String nombre, String descripcion, int duracionMin, float precio,
 			Prestador prestador, Especificacion especificacion) {
 		super();
 		this.idServicio = idServicio;
@@ -29,11 +29,11 @@ public class Servicio {
 		this.lstDisponibilidad = new HashSet<Disponibilidad>();
 	}
 
-	public long getIdServicio() {
+	public int getIdServicio() {
 		return idServicio;
 	}
 
-	public void setIdServicio(long idServicio) {
+	public void setIdServicio(int idServicio) {
 		this.idServicio = idServicio;
 	}
 
@@ -53,11 +53,11 @@ public class Servicio {
 		this.descripcion = descripcion;
 	}
 
-	public int getDurecionMin() {
+	public int getDuracionMin() {
 		return duracionMin;
 	}
 
-	public void setDurecionMin(int duracionMin) {
+	public void setDuracionMin(int duracionMin) {
 		this.duracionMin = duracionMin;
 	}
 
@@ -95,7 +95,7 @@ public class Servicio {
 
 	@Override
 	public String toString() {
-		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion
+		return "Servicio [id=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion
 				+ ", duracionMin=" + duracionMin + ", precio=" + precio + ", prestador=" + prestador +especificacion.toString()+ "]";
 	}
 

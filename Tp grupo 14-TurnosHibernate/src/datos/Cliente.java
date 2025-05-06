@@ -10,7 +10,9 @@ public class Cliente extends Usuario {
 	private String apellido;
 	private Set<Turno> lstTurnos;
 	
-	public Cliente() {}
+	public Cliente() {
+		
+	}
 
 	public Cliente(int idUsuario, String email, String contrasenia, long dni, String nombre, String apellido) {
 		super(idUsuario, email, contrasenia);

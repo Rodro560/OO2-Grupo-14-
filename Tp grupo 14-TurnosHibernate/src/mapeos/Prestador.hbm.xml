@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="datos">
+
+    <joined-subclass name="Prestador" table="prestador" extends="Usuario">
+        <key column="id"/>
+        
+        <property name="razonSocial" column="razonSocial" type="string"/>
+        <property name="direccionCentral" column="direccionCentral" type="string"/>
+        <property name="habilitado" column="habilitado" type="boolean"/>
+        
+        <set name="lstServicio" cascade="all-delete-orphan" inverse="true" lazy="false">
+    		<key column="prestador_id"/>
+    		<one-to-many class="datos.Servicio"/>
+		</set>
+
+    </joined-subclass>
+
+</hibernate-mapping>

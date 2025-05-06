@@ -1,36 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
-	<class name="datos.Usuario" table="usuario" abstract="true">
-		<id name="idUsuario" column="idUsuario">
-			<generator class="identity"/>
-		</id>
-		<property name="email" column="email" type="string"/>
-		<property name="contrasenia" column="contrasenia" type="string"/>
-		
-		<!-- Subclases -->
-		<subclass name="datos.Cliente" discriminator-value="cliente" extends="datos.Usuario">
-			<property name="dni" column="dni" type="long"/>
-			<property name="nombre" column="nombre" type="string"/>
-			<property name="apellido" column="apellido" type="string"/>
-			<set name="lstTurnos" cascade="all-delete-orphan" inverse="true" lazy="false" order-by="idTurnos asc">
-				<key column="idUsuario"/>
-				<one-to-many class="datos.Turno"/>
-			</set>
-		</subclass>
-		
-		
-		<subclass name="datos.Prestador" discriminator-value="prestador" extends="datos.Usuario">
-			<property name="razonSocial" column="razonSocial" type="string"/>
-			<property name="direccionCentral" column="direccionCentral" type="string"/>
-			<property name="habilitado" column="habilitado" type="string"/>
-			<set name="lstServicio" cascade="all-delete-orphan" inverse="true" lazy="false" order-by="idServicio asc">
-				<key column="idUsuario"/>
-				<one-to-many class="datos.Servicio"/>
-			</set>
-		</subclass>
-		
-	</class>
+<hibernate-mapping package="datos">
+    <class name="Usuario" table="usuario">
+        <id name="idUsuario" column="idUsuario">
+            <generator class="identity"/>
+        </id>
+
+        <property name="email" column="email" type="string"/>
+        <property name="contrasenia" column="contrasenia" type="string"/>
+    </class>
 </hibernate-mapping>
+

@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 	<class name="datos.Disponibilidad" table="disponibilidad">
-		<id column="idDisponibilidad" name="idDisponibilidad">
-			<generator class="identity"></generator>
+		<id name="idDisponibilidad" column="idDisponibilidad">
+			<generator class="identity" />
 		</id>
+
 		<property name="diaSemana" column="diaSemana">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">datos.EnumDias</param>
 				<param name="useOrdinal">false</param>
 			</type>
 		</property>
-		<property name="horaInicio" column="horaInicio" type="java.time.LocalTime"/>
-        <property name="horaFin" column="horaFin" type="java.time.LocalTime"/>
-        <set name="lstServicios" table="servicio_disponibilidad" cascade="save-update" lazy="false" order-by="idServicio asc" inverse="true">
-			<key column="idDisponibilidad" not-null="true"/>  
-			<many-to-many class="datos.Servicio" column="idServicio"/>
-        </set>
-        <set name="lstTurnos" cascade="all-delete-orphan" lazy="false" order-by="idTurno asc" inverse="false">
-			<key column="idDisponibilidad" not-null="true"/>
-			<one-to-many class="datos.Turno"/>
+
+		<property name="horaInicio" column="horaInicio"
+			type="java.time.LocalTime" />
+		<property name="horaFin" column="horaFin" type="java.time.LocalTime" />
+
+		<many-to-one name="servicio" class="datos.Servicio" column="servicio_id"
+			not-null="true" />
+
+		<set name="lstTurnos" cascade="all-delete-orphan" inverse="true"
+			lazy="false">
+			<key column="disponibilidad_id" />
+			<one-to-many class="datos.Turno" />
 		</set>
 	</class>
 </hibernate-mapping>

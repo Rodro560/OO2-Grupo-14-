@@ -10,7 +10,7 @@
 			</generator>
 		</id>
 		<one-to-one name="usuario" class="datos.Usuario" constrained="true" />
-		<property name="telefono" column="telefono" type="int"/>
+		<property name="telefono" column="telefono" type="string"/>
 		<property name="direccion" column="direccion" type="string"/>
 	</class>
 </hibernate-mapping>

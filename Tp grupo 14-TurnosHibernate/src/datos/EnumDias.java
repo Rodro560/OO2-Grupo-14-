@@ -5,10 +5,10 @@ public enum EnumDias {
 	LUNES,
 	MARTES,
 	MIERCOLES,
-	JEUVES,
+	JUEVES,
 	VIENES,
 	SABADO,
-	DOMNINGO;
+	DOMINGO;
 	
 
 }

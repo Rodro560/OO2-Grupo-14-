@@ -3,19 +3,24 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="datos.Servicio" table="servicio">
-		<id column="idServicio" name="idServicio">
-			<generator class="identity"></generator>
-		</id>
-		<property name="nombre" column="nombre" type="string"/>
-		<property name="descripcion" column="descripcion" type="string"/>
-		<property name="duracionMin" column="duracionMin" type="int"/>
-		<property name="precio" column="precio" type="float"/>
-		<many-to-one name="prestador" class="datos.Prestador" column="idUsuario" not-null="true"/>
-		<one-to-one name="especificacion" class="datos.Especificacion"/>
-		<set name="lstDisponibilidad" table="servicio_disponibilidad" cascade="save-update" lazy="false" order-by="idDisponibilidad asc">
-			<key column="idServicio" not-null="true"/>
-			<many-to-many class="datos.Disponibilidad" column="idDisponibilidad"/>
-		</set>
-	</class>
+    <class name="datos.Servicio" table="servicio">
+        <id column="idServicio" name="idServicio">
+            <generator class="identity" />
+        </id>
+
+        <property name="nombre" column="nombre" type="string"/>
+        <property name="descripcion" column="descripcion" type="string"/>
+        <property name="duracionMin" column="duracionMin" type="int"/>
+        <property name="precio" column="precio" type="float"/>
+
+        <many-to-one name="prestador" class="datos.Prestador" column="prestador_id" not-null="true"/>
+        
+        <many-to-one name="especificacion" class="datos.Especificacion" column="especificacion_id"/>
+
+
+        <set name="lstDisponibilidad" cascade="all-delete-orphan" inverse="true" lazy="false">
+            <key column="servicio_id"/>
+            <one-to-many class="datos.Disponibilidad"/>
+        </set>
+    </class>
 </hibernate-mapping>

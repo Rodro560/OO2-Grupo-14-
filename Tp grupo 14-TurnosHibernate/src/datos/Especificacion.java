@@ -2,7 +2,7 @@ package datos;
 
 public class Especificacion {
 	
-	private long idEspecificacion;
+	private int idEspecificacion;
     private EnumRubro rubro;
     private String detalles;
     private String personalInvolucrado;
@@ -10,7 +10,7 @@ public class Especificacion {
     
 	public Especificacion() {}
 
-	public Especificacion(long idEspecificacion, EnumRubro rubro, String detalles, String personalInvolucrado, Servicio servicio) {
+	public Especificacion(int idEspecificacion, EnumRubro rubro, String detalles, String personalInvolucrado, Servicio servicio) {
 		super();
 		this.idEspecificacion = idEspecificacion;
 		this.rubro = rubro;
@@ -19,11 +19,11 @@ public class Especificacion {
 		this.servicio = servicio;
 	}
 
-	public long getIdEspecificacion() {
+	public int getIdEspecificacion() {
 		return idEspecificacion;
 	}
 
-	public void setIdEspecificacion(long idEspecificacion) {
+	public void setIdEspecificacion(int idEspecificacion) {
 		this.idEspecificacion = idEspecificacion;
 	}
 
@@ -35,37 +35,36 @@ public class Especificacion {
 		this.rubro = rubro;
 	}
 
-	public String getResponsable() {
+	public String getDetalles() {
 		return detalles;
 	}
 
-	public void setResponsable(String responsable) {
-		this.detalles = responsable;
+	public void setDetalles(String detalles) {
+		this.detalles = detalles;
 	}
 
-	public String getDetallesDelPersonal() {
+	public String getPersonalInvolucrado() {
 		return personalInvolucrado;
 	}
 
-	public void setDetallesDelPersonal(String detallesDelPersonal) {
-		this.personalInvolucrado = detallesDelPersonal;
+	public void setPersonalInvolucrado(String personalInvolucrado) {
+		this.personalInvolucrado = personalInvolucrado;
 	}
-	
+
 	public Servicio getServicio() {
 		return servicio;
 	}
+
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
 	@Override
 	public String toString() {
-		return "Especificacion [idEspecificacion=" + idEspecificacion + ", rubro=" + rubro + ", responsable="
-				+ detalles + ", detallesDelPersonal=" + personalInvolucrado + "]";
+		return "Especificacion [idEspecificacion=" + idEspecificacion + ", rubro=" + rubro + ", detalles=" + detalles
+				+ ", personalInvolucrado=" + personalInvolucrado + ", servicio=" + servicio + "]";
 	}
 
-	
-    
 	
     
 	
