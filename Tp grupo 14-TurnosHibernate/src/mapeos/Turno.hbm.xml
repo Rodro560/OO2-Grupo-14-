@@ -16,7 +16,7 @@
 			</type>
 		</property>
 		<many-to-one name="cliente" class="datos.Cliente" column="idUsuario" not-null="true"/>
-		<many-to-one name="disponibilidad" class="datos.Disponibilidad" column="idDisponibilidad" not-null="true"/>
+		<many-to-one name="disponibilidad" class="datos.Disponibilidad" column="idDisponibilidad" not-null="true" insert="false" update="false"/>
 		<many-to-one name="servicio" class="datos.Servicio" column="idServicio" not-null="true"/>
 	</class>
 </hibernate-mapping>

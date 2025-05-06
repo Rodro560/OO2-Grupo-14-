@@ -35,19 +35,19 @@ public class Especificacion {
 		this.rubro = rubro;
 	}
 
-	public String getResponsable() {
+	public String getDetalles() {
 		return detalles;
 	}
 
-	public void setResponsable(String responsable) {
+	public void setDetalles(String responsable) {
 		this.detalles = responsable;
 	}
 
-	public String getDetallesDelPersonal() {
+	public String getPersonalInvolucrado() {
 		return personalInvolucrado;
 	}
 
-	public void setDetallesDelPersonal(String detallesDelPersonal) {
+	public void setPersonalInvolucrado(String detallesDelPersonal) {
 		this.personalInvolucrado = detallesDelPersonal;
 	}
 	

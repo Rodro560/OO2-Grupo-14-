@@ -42,12 +42,12 @@ public class Perfil {
 		this.direccion = direccion;
 	}
 
-	public Usuario getCliente() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setCliente(Usuario cliente) {
-		this.usuario = cliente;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

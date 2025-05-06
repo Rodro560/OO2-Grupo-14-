@@ -53,11 +53,11 @@ public class Servicio {
 		this.descripcion = descripcion;
 	}
 
-	public int getDurecionMin() {
+	public int getDuracionMin() {
 		return duracionMin;
 	}
 
-	public void setDurecionMin(int duracionMin) {
+	public void setDuracionMin(int duracionMin) {
 		this.duracionMin = duracionMin;
 	}
 

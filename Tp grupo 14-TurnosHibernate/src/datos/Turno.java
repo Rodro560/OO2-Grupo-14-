@@ -27,11 +27,11 @@ public class Turno {
 		this.servicio = servicio;
 	}
 
-	public int getIdTurnos() {
+	public int getIdTurno() {
 		return idTurno;
 	}
 
-	public void setIdTurnos(int idTurno) {
+	public void setIdTurno(int idTurno) {
 		this.idTurno = idTurno;
 	}
 
