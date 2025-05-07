@@ -80,10 +80,10 @@ CREATE TABLE `perfil` (
   `idPerfil` int NOT NULL AUTO_INCREMENT,
   `telefono` varchar(20) DEFAULT NULL,
   `direccion` varchar(200) DEFAULT NULL,
-  `cliente_id` int NOT NULL,
+  `usuario_id` int NOT NULL,
   PRIMARY KEY (`idPerfil`),
-  UNIQUE KEY `cliente_id` (`cliente_id`),
-  CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`)
+  UNIQUE KEY `usuario_id` (`usuario_id`),
+  CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)/* se ajusto la relacion*/
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -116,7 +116,7 @@ CREATE TABLE `servicio` (
   `nombre` varchar(100) NOT NULL,
   `descripcion` text,
   `duracionMin` int NOT NULL,
-  `idUsuario` int NOT NULL,
+  `idUsuario` int NOT NULL, /* hace relacion al prestador */
   `especificacion_id` int DEFAULT NULL,
   `precio` float DEFAULT NULL,
   PRIMARY KEY (`idServicio`),
@@ -158,11 +158,14 @@ CREATE TABLE `turno` (
   `estado` enum('PENDIENTE','CONFIRMADO','CANCELADO') NOT NULL,
   `cliente_id` int NOT NULL,
   `disponibilidad_id` int NOT NULL,
+  `servicio_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   KEY `disponibilidad_id` (`disponibilidad_id`),
+  KEY `servicio_id` (servicio_id),
   CONSTRAINT `turno_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
-  CONSTRAINT `turno_ibfk_2` FOREIGN KEY (`disponibilidad_id`) REFERENCES `disponibilidad` (`idDisponibilidad`)
+  CONSTRAINT `turno_ibfk_2` FOREIGN KEY (`disponibilidad_id`) REFERENCES `disponibilidad` (`idDisponibilidad`),
+  CONSTRAINT `turno_ibfk_3` FOREIGN KEY (`servicio_id`) REFERENCES `servicio` (`idServicio`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
