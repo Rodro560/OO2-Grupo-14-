@@ -8,7 +8,7 @@
       <generator class="identity"/>
     </id>
     <property name="email" column="email" type="string"/>
-    <property name="contrasena" column="contrasenia" type="string"/>
+    <property name="contrasenia" column="contrasena" type="string"/>
 
     <!-- Subclase Cliente -->
     <joined-subclass name="datos.Cliente" table="cliente">
