@@ -30,6 +30,10 @@ public class ServicioABM {
 			throw new Exception("El nombre ingresado ya esta registrado");
 		}
 		
+		if (prestador == null) {
+		    throw new Exception("Debe asignarse un prestador al servicio.");
+		}
+		
 		System.out.println("Se agrego el servicio");
 		return dao.agregar(s);
 	}
