@@ -7,13 +7,13 @@ public class Prestador extends Usuario{
 	
 	private String razonSocial;
 	private String direccionCentral;
-	private String habilitado;
+	private boolean habilitado;
 	private Set<Servicio> lstServicio;
 	
 	public Prestador() {}
 
 	public Prestador(String email, String contrasenia, String razonSocial, String direccionCentral,
-			String habilitado) {
+			boolean habilitado) {
 		super(email, contrasenia);
 		this.razonSocial = razonSocial;
 		this.direccionCentral = direccionCentral;
@@ -37,11 +37,11 @@ public class Prestador extends Usuario{
 		this.direccionCentral = direccionCentral;
 	}
 
-	public String getHabilitado() {
+	public boolean getHabilitado() {
 		return habilitado;
 	}
 
-	public void setHabilitado(String habilitado) {
+	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
 	}
 
