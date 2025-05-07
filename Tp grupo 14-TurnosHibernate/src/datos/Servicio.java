@@ -16,10 +16,9 @@ public class Servicio {
 	
 	public Servicio() {}
 
-	public Servicio(long idServicio, String nombre, String descripcion, int duracionMin, float precio,
+	public Servicio(String nombre, String descripcion, int duracionMin, float precio,
 			Prestador prestador, Especificacion especificacion) {
 		super();
-		this.idServicio = idServicio;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.duracionMin = duracionMin;
@@ -97,6 +96,10 @@ public class Servicio {
 	public String toString() {
 		return "Servicio [idServicio=" + idServicio + ", nombre=" + nombre + ", descripcion=" + descripcion
 				+ ", duracionMin=" + duracionMin + ", precio=" + precio + ", prestador=" + prestador +especificacion.toString()+ "]";
+	}
+	
+	public boolean equals(Servicio s) {
+		return (s.nombre.equals(this.nombre));
 	}
 
 }
