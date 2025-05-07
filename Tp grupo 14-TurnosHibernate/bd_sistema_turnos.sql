@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
 CREATE DATABASE  IF NOT EXISTS `sistema_turnos` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `sistema_turnos`;
->>>>>>> branch 'main' of https://github.com/Rodro560/OO2-Grupo-14-.git
+
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sistema_turnos
