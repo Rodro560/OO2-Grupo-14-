@@ -8,9 +8,8 @@ public class Usuario {
 	
 	public Usuario() {}
 
-	public Usuario(int idUsuario, String email, String contrasenia) {
+	public Usuario( String email, String contrasenia) {
 		super();
-		this.idUsuario = idUsuario;
 		this.email = email;
 		this.contrasenia = contrasenia;
 	}
