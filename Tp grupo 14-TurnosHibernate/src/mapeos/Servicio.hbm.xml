@@ -12,7 +12,7 @@
 		<property name="duracionMin" column="duracionMin" type="int"/>
 		<property name="precio" column="precio" type="float"/>
 		<many-to-one name="prestador" class="datos.Prestador" column="idUsuario" not-null="true"/>
-		<one-to-one name="especificacion" class="datos.Especificacion"/>
+		<many-to-one name="especificacion" class="datos.Especificacion" column="especificacion_id" not-null="false" unique="true"/>
 		<set name="lstDisponibilidad" table="servicio_disponibilidad" cascade="save-update" lazy="false" order-by="idDisponibilidad asc">
 			<key column="idServicio" not-null="true"/>
 			<many-to-many class="datos.Disponibilidad" column="idDisponibilidad"/>
