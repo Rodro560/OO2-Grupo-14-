@@ -4,15 +4,15 @@
 
 <hibernate-mapping>
   <class name="datos.Usuario" table="usuario">
-    <id name="idUsuario" column="idUsuario">
+    <id name="idUsuario" column="id">
       <generator class="identity"/>
     </id>
     <property name="email" column="email" type="string"/>
-    <property name="contrasenia" column="contrasenia" type="string"/>
+    <property name="contrasena" column="contrasenia" type="string"/>
 
     <!-- Subclase Cliente -->
     <joined-subclass name="datos.Cliente" table="cliente">
-      <key column="idUsuario"/> <!-- FK a la tabla usuario -->
+      <key column="id"/> <!-- FK a la tabla usuario -->
       <property name="dni" column="dni" type="long"/>
       <property name="nombre" column="nombre" type="string"/>
       <property name="apellido" column="apellido" type="string"/>
@@ -24,10 +24,10 @@
 
     <!-- Subclase Prestador -->
     <joined-subclass name="datos.Prestador" table="prestador">
-      <key column="idUsuario"/> <!-- FK a la tabla usuario -->
+      <key column="id"/> <!-- FK a la tabla usuario -->
       <property name="razonSocial" column="razonSocial" type="string"/>
       <property name="direccionCentral" column="direccionCentral" type="string"/>
-      <property name="habilitado" column="habilitado" type="string"/>
+      <property name="habilitado" column="habilitado" type="boolean"/>
       <set name="lstServicio" cascade="all-delete-orphan" inverse="true" lazy="false" order-by="idServicio asc">
         <key column="idUsuario"/>
         <one-to-many class="datos.Servicio"/>
