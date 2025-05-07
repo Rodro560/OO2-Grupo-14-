@@ -12,8 +12,9 @@ public class Prestador extends Usuario{
 	
 	public Prestador() {}
 
-	public Prestador( String email, String contrasenia, String razonSocial, String direccionCentral,
+	public Prestador(String email, String contrasenia, String razonSocial, String direccionCentral,
 			String habilitado) {
+		super(email, contrasenia);
 		this.razonSocial = razonSocial;
 		this.direccionCentral = direccionCentral;
 		this.habilitado = habilitado;
