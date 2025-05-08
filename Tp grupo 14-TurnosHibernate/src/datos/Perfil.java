@@ -4,18 +4,23 @@ package datos;
 public class Perfil {
 	
 	private int idPerfil;
-	private int telefono;
+	private String telefono;
 	private String direccion;
 	private  Usuario usuario;
 	
 	public Perfil() {}
 
-	public Perfil(int idPerfil, int telefono, String direccion, Usuario usuario) {
-		super();
-		this.idPerfil = idPerfil;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.usuario = usuario;
+	public Perfil(String telefono, String direccion, Usuario usuario) {
+	    super();
+
+	    if (usuario == null || usuario.getIdUsuario() == 0) { // Validación extra
+	        throw new IllegalArgumentException(" Error: El usuario no puede ser null ni tener ID 0.");
+	    }
+
+	    this.idPerfil = usuario.getIdUsuario(); // Asigna el ID desde Usuario
+	    this.telefono = telefono;
+	    this.direccion = direccion;
+	    this.usuario = usuario;
 	}
 
 	public int getIdPerfil() {
@@ -26,11 +31,11 @@ public class Perfil {
 		this.idPerfil = idPerfil;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
