@@ -8,8 +8,8 @@
 				<param name="property">usuario</param>
 			</generator>
 		</id>
-		<one-to-one name="usuario" class="datos.Usuario" constrained="true" />
-		<property name="telefono" column="telefono" type="int"/>
+		<one-to-one name="usuario" class="datos.Usuario" constrained="true" fetch="join"/>
+		<property name="telefono" column="telefono" type="string"/>
 		<property name="direccion" column="direccion" type="string"/>
 	</class>
 </hibernate-mapping>
