@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="datos.Usuario" table="usuario">
-    <id name="idUsuario" column="id">
-      <generator class="identity"/>
-    </id>
-    <property name="email" column="email" type="string"/>
-    <property name="contrasenia" column="contrasena" type="string"/>
+	<class name="datos.Usuario" table="usuario">
+		<id name="idUsuario" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="email" column="email" type="string" />
+		<property name="contrasenia" column="contrasenia" type="string" />
 
-    <!-- Subclase Cliente -->
-    <joined-subclass name="datos.Cliente" table="cliente">
-      <key column="id"/> <!-- FK a la tabla usuario -->
-      <property name="dni" column="dni" type="long"/>
-      <property name="nombre" column="nombre" type="string"/>
-      <property name="apellido" column="apellido" type="string"/>
-      <set name="lstTurnos" cascade="all-delete-orphan" inverse="true" lazy="false" order-by="idTurnos asc">
-        <key column="idUsuario"/>
-        <one-to-many class="datos.Turno"/>
-      </set>
-    </joined-subclass>
+		<!-- Subclase Cliente -->
+		<joined-subclass name="datos.Cliente" table="cliente">
+			<key column="id" />
 
-    <!-- Subclase Prestador -->
-    <joined-subclass name="datos.Prestador" table="prestador">
-      <key column="id"/> <!-- FK a la tabla usuario -->
-      <property name="razonSocial" column="razonSocial" type="string"/>
-      <property name="direccionCentral" column="direccionCentral" type="string"/>
-      <property name="habilitado" column="habilitado" type="boolean"/>
-      <set name="lstServicio" cascade="all-delete-orphan" inverse="true" lazy="false" order-by="idServicio asc">
-        <key column="idUsuario"/>
-        <one-to-many class="datos.Servicio"/>
-      </set>
-    </joined-subclass>
+			<property name="dni" column="dni" type="long" />
+			<property name="nombre" column="nombre" type="string" />
+			<property name="apellido" column="apellido" type="string" />
 
-  </class>
+			<!-- Relación con Turno -->
+			<set name="lstTurnos" cascade="all-delete-orphan" inverse="true"
+				lazy="true" order-by="id asc">
+				<key column="id" />
+				<one-to-many class="datos.Turno" />
+			</set>
+		</joined-subclass>
+
+		<!-- Subclase Prestador -->
+		<joined-subclass name="datos.Prestador" table="prestador">
+			<key column="id" />
+			<property name="razonSocial" column="razonSocial" type="string" />
+			<property name="direccionCentral" column="direccionCentral"
+				type="string" />
+			<property name="habilitado" column="habilitado" type="boolean" />
+			<set name="lstServicio" cascade="all-delete-orphan" inverse="true"
+				lazy="false" order-by="idServicio asc">
+				<key column="idUsuario" />
+				<one-to-many class="datos.Servicio" />
+			</set>
+		</joined-subclass>
+	</class>
 </hibernate-mapping>
