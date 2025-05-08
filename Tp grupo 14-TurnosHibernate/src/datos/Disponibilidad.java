@@ -78,6 +78,18 @@ public class Disponibilidad {
 				+ horaInicio + ", horaFin=" + horaFin + "]";
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+	    Disponibilidad that = (Disponibilidad) o;
+	    return idDisponibilidad == that.idDisponibilidad;
+	}
+
+	@Override
+	public int hashCode() {
+	    return Integer.hashCode(idDisponibilidad);
+	}
 	
 
 }
