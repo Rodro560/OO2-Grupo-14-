@@ -4,6 +4,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
+
+import datos.EstadoTurno;
 import datos.Turno;
 
 public class TurnoDao {
@@ -63,7 +65,7 @@ public class TurnoDao {
 	}
 	
 	// Consulta por atributos
-	public List<Turno> obtenerTurnosPorEstado(String estado) throws Exception {
+	public List<Turno> obtenerTurnosPorEstado(EstadoTurno estado) throws Exception {
 	    Session session = null;
 	    List<Turno> turnos = null;
 	    try {
@@ -80,6 +82,7 @@ public class TurnoDao {
 	    }
 	    return turnos;
 	}
+
 
 
 	public List<Turno> obtenerTodosLosTurnos() throws Exception {

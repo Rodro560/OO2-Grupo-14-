@@ -3,6 +3,7 @@ package negocio;
 import java.util.List;
 
 import dao.TurnoDao;
+import datos.EstadoTurno;
 import datos.Turno;
 
 public class TurnoABM {
@@ -40,7 +41,7 @@ public class TurnoABM {
         System.out.println("✅ Turno actualizado correctamente.");
     }
 
-    public List<Turno> traerTurnosPorEstado(String estado) throws Exception {
+    public List<Turno> traerTurnosPorEstado(EstadoTurno estado) throws Exception {
         List<Turno> turnos = turnoDAO.obtenerTurnosPorEstado(estado);
         if (turnos == null || turnos.isEmpty()) {
             throw new Exception("No se encontraron turnos con estado: " + estado);
