@@ -10,23 +10,34 @@ public class TestDisponibilidad {
 		DisponibilidadABM disponibilidadABM = new DisponibilidadABM();
 
 		System.out.println("---- AGREGAR DISPONIBILIDAD ----");
-		Disponibilidad disponibilidad1 = null;
+		Disponibilidad d1 = new Disponibilidad();
+		Disponibilidad d2 = new Disponibilidad();
+		Disponibilidad d3 = new Disponibilidad();
+		Disponibilidad d4 = new Disponibilidad();
 		try {
-			System.out.println("Intentando agregar disponibilidad para:" + EnumDias.LUNES); // prueba del lunes
 			int id = disponibilidadABM.agregar(EnumDias.LUNES, LocalTime.of(8, 0), LocalTime.of(12, 0));
-			disponibilidad1 = disponibilidadABM.traer(id);
-			System.out.println("Disponibilidad agregada: " + disponibilidad1);
+			int id2 = disponibilidadABM.agregar(EnumDias.MARTES, LocalTime.of(8, 0), LocalTime.of(12, 0));
+			int id3= disponibilidadABM.agregar(EnumDias.JUEVES, LocalTime.of(9, 0), LocalTime.of(13, 0));
+			int id4 = disponibilidadABM.agregar(EnumDias.VIERNES, LocalTime.of(8, 0), LocalTime.of(12, 0));
+			d1 = disponibilidadABM.traer(id);
+			d2 = disponibilidadABM.traer(id2);
+			d3 = disponibilidadABM.traer(id3);
+			d4 = disponibilidadABM.traer(id4);
+			System.out.println("Disponibilidad agregada: " + d1);
+			System.out.println("Disponibilidad agregada: " + d2);
+			System.out.println("Disponibilidad agregada: " + d3);
+			System.out.println("Disponibilidad agregada: " + d4);
 		} catch (Exception e) {
 			System.out.println("Error al agregar disponibilidad: " + e.getMessage());
 		}
 
 		System.out.println("\n---- MODIFICAR DISPONIBILIDAD ----");
 		try {
-			if (disponibilidad1 != null) {
-				disponibilidad1.setHoraInicio(LocalTime.of(9, 0));
-				disponibilidadABM.modificar(disponibilidad1);
+			if (d1 != null) {
+				d1.setHoraInicio(LocalTime.of(9, 0));
+				disponibilidadABM.modificar(d1);
 				System.out.println(
-						"Disponibilidad modificada: " + disponibilidadABM.traer(disponibilidad1.getIdDisponibilidad()));
+						"Disponibilidad modificada: " + disponibilidadABM.traer(d1.getIdDisponibilidad()));
 			}
 		} catch (Exception e) {
 			System.out.println("Error al modificar disponibilidad: " + e.getMessage());
@@ -34,8 +45,8 @@ public class TestDisponibilidad {
 
 		System.out.println("\n---- ELIMINAR DISPONIBILIDAD ----");
 		try {
-			if (disponibilidad1 != null) {
-				disponibilidadABM.eliminar(disponibilidad1.getIdDisponibilidad());
+			if (d1 != null) {
+				disponibilidadABM.eliminar(d1.getIdDisponibilidad());
 				System.out.println("Disponibilidad eliminada correctamente.");
 			}
 		} catch (Exception e) {
