@@ -1,9 +1,11 @@
 package negocio;
 
 import java.util.List;
+import java.util.Set;
 
 import dao.ServicioDao;
 import datos.Servicio;
+import datos.Disponibilidad;
 import datos.Especificacion;
 import datos.Prestador;
 
@@ -77,4 +79,55 @@ public class ServicioABM {
 	    dao.eliminar(s);
 	    System.out.println("\nSe elimino el servicio");
 	}
+	
+	
+	
+	public void agregarDisponibilidad(Servicio servicio, Disponibilidad disponibilidad) throws Exception {
+	    if (servicio == null) {
+	        throw new Exception("El servicio no puede ser null.");
+	    }
+	    if (disponibilidad == null) {
+	        throw new Exception("La disponibilidad no puede ser null.");
+	    }
+	    if (servicio.getLstDisponibilidad().contains(disponibilidad)) {
+	        throw new Exception("La disponibilidad ya está asociada al servicio.");
+	    }
+
+	    servicio.getLstDisponibilidad().add(disponibilidad);
+	    dao.actualizar(servicio);
+	}
+
+	
+	
+	public void eliminarDisponibilidad(Servicio servicio, Disponibilidad disponibilidad) throws Exception {
+	    if (servicio == null) {
+	        throw new Exception("El servicio no puede ser null.");
+	    }
+	    if (disponibilidad == null) {
+	        throw new Exception("La disponibilidad no puede ser null.");
+	    }
+	    if (!servicio.getLstDisponibilidad().contains(disponibilidad)) {
+	        throw new Exception("La disponibilidad no está asociada al servicio.");
+	    }
+
+	    servicio.getLstDisponibilidad().remove(disponibilidad);
+	    dao.actualizar(servicio);
+	}
+	
+	
+	
+	public Set<Disponibilidad> traerDisponibilidades(String nombreServicio) throws Exception {
+	    Servicio servicio = dao.traerServicio(nombreServicio);
+
+	    if (servicio == null) {
+	        throw new Exception("No se encontró un servicio con el nombre: " + nombreServicio);
+	    }
+
+	    if (servicio.getLstDisponibilidad().isEmpty()) {
+	        throw new Exception("El servicio no tiene disponibilidades asignadas.");
+	    }
+
+	    return servicio.getLstDisponibilidad();
+	}
 }
+
