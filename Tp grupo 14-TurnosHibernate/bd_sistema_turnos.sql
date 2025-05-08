@@ -115,7 +115,7 @@ CREATE TABLE `servicio` (
   `descripcion` text,
   `duracionMin` int NOT NULL,
   `idUsuario` int NOT NULL, /* hace relacion al prestador */
-  `especificacion_id` int NOT NULL,
+  `especificacion_id` int DEFAULT NULL,
   `precio` float NOT NULL,
   PRIMARY KEY (`idServicio`),
   KEY `prestador_id` (`idUsuario`),
