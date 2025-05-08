@@ -47,7 +47,7 @@ CREATE TABLE `disponibilidad` (
   `diaSemana` enum('LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SABADO','DOMINGO') NOT NULL,
   `horaInicio` time NOT NULL,
   `horaFin` time NOT NULL,
-  PRIMARY KEY (`idDisponibilidad`),
+  PRIMARY KEY (`idDisponibilidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,9 +60,9 @@ DROP TABLE IF EXISTS `especificacion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `especificacion` (
   `idEspecificacion` int NOT NULL AUTO_INCREMENT,
-  `rubro` varchar(100) NOT NULL,
-  `responsable` varchar(100) DEFAULT NULL,
-  `detalleDelPersonal` text,
+  `rubro` ENUM('MEDICO', 'MECANICA', 'GASTRONOMIA', 'SERVICIOTECNICO', 'LABORATORIO', 'BELLEZA') NOT NULL,
+  `detalles` varchar(200) NOT NULL,
+  `personalInvolucrado` varchar(200)NOT NULL,
   PRIMARY KEY (`idEspecificacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -95,7 +95,7 @@ DROP TABLE IF EXISTS `prestador`;
 CREATE TABLE `prestador` (
   `id` int NOT NULL,
   `razonSocial` varchar(100) NOT NULL,
-  `direccionCentral` varchar(200) DEFAULT NULL,
+  `direccionCentral` varchar(200) NOT NULL,
   `habilitado` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   CONSTRAINT `prestador_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuario` (`id`)
@@ -115,8 +115,8 @@ CREATE TABLE `servicio` (
   `descripcion` text,
   `duracionMin` int NOT NULL,
   `idUsuario` int NOT NULL, /* hace relacion al prestador */
-  `especificacion_id` int DEFAULT NULL,
-  `precio` float DEFAULT NULL,
+  `especificacion_id` int NOT NULL,
+  `precio` float NOT NULL,
   PRIMARY KEY (`idServicio`),
   KEY `prestador_id` (`idUsuario`),
   KEY `especificacion_id` (`especificacion_id`),
