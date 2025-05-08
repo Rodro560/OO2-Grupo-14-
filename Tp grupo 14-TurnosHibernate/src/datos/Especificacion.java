@@ -10,13 +10,11 @@ public class Especificacion {
     
 	public Especificacion() {}
 
-	public Especificacion(long idEspecificacion, EnumRubro rubro, String detalles, String personalInvolucrado, Servicio servicio) {
+	public Especificacion(EnumRubro rubro, String detalles, String personalInvolucrado) {
 		super();
-		this.idEspecificacion = idEspecificacion;
 		this.rubro = rubro;
 		this.detalles = detalles;
 		this.personalInvolucrado = personalInvolucrado;
-		this.servicio = servicio;
 	}
 
 	public long getIdEspecificacion() {
