@@ -75,13 +75,11 @@ DROP TABLE IF EXISTS `perfil`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `perfil` (
-  `idPerfil` int NOT NULL AUTO_INCREMENT,
+  `idPerfil` int NOT NULL, /* lo toma directamente del usuario al que se le asigna*/
   `telefono` varchar(20) DEFAULT NULL,
   `direccion` varchar(200) DEFAULT NULL,
-  `usuario_id` int NOT NULL,
   PRIMARY KEY (`idPerfil`),
-  UNIQUE KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)/* se ajusto la relacion*/
+  CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`idPerfil`) REFERENCES `usuario` (`id`)/*de aca sale el id del perfil similar a lo de cliente*/
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

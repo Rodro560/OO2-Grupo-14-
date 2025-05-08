@@ -5,6 +5,7 @@ import java.util.List;
 import datos.Prestador;
 import datos.Servicio;
 import negocio.ServicioABM;
+import negocio.DisponibilidadABM;
 import negocio.PrestadorABM;
 
 public class testServicioAbm {
@@ -14,6 +15,7 @@ public class testServicioAbm {
 		
 		ServicioABM servicio= new ServicioABM();
 		PrestadorABM prestador= new PrestadorABM();
+		DisponibilidadABM disponibilidad= new DisponibilidadABM();
 		
 		try {
 			servicio.crearServicio("Servicio 1", "Es el servicio 1", 0, 10.50f, prestador.traerPrestador("buenas"), null);
@@ -45,6 +47,27 @@ public class testServicioAbm {
 				System.out.println("Servicio: " + s.getNombre());
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(8));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(9));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(8));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(9));
+			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(9));
+			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			servicio.traerDisponibilidades("Servicio 2");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

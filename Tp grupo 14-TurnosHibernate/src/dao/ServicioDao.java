@@ -44,7 +44,7 @@ public class ServicioDao {
 	public void actualizar(Servicio objeto) {
 		try {
 			iniciaOperacion();
-			session.update(objeto);
+			session.merge(objeto);
 			tx.commit();
 		} catch (HibernateException he) {
 			manejaExcepcion(he);
