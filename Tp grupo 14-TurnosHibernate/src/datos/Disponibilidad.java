@@ -15,9 +15,8 @@ public class Disponibilidad {
 	
 	public Disponibilidad() {}
 
-	public Disponibilidad(int idDisponibilidad, EnumDias diaSemana, LocalTime horaInicio, LocalTime horaFin) {
+	public Disponibilidad(EnumDias diaSemana, LocalTime horaInicio, LocalTime horaFin) {
 		super();
-		this.idDisponibilidad = idDisponibilidad;
 		this.diaSemana = diaSemana;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
