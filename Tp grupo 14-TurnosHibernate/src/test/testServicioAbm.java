@@ -6,6 +6,7 @@ import datos.Prestador;
 import datos.Servicio;
 import negocio.ServicioABM;
 import negocio.DisponibilidadABM;
+import negocio.EspecificacionABM;
 import negocio.PrestadorABM;
 
 public class testServicioAbm {
@@ -16,11 +17,12 @@ public class testServicioAbm {
 		ServicioABM servicio= new ServicioABM();
 		PrestadorABM prestador= new PrestadorABM();
 		DisponibilidadABM disponibilidad= new DisponibilidadABM();
+		EspecificacionABM especificacion= new EspecificacionABM();
 		
 		try {
-			servicio.crearServicio("Servicio 1", "Es el servicio 1", 0, 10.50f, prestador.traerPrestador("buenas"), null);
-			servicio.crearServicio("Servicio 2", "Es el servicio 2", 0, 10.50f, prestador.traerPrestador("buenas"), null);
-			servicio.crearServicio("Servicio 3", "Es el servicio 3", 0, 10.50f, prestador.traerPrestador("ghrg"), null);
+			servicio.crearServicio("Servicio 1", "Es el servicio 1", 0, 10.50f, prestador.traerPrestador("buenas"), especificacion.traerEspecificaion(1));
+			servicio.crearServicio("Servicio 2", "Es el servicio 2", 0, 10.50f, prestador.traerPrestador("buenas"), especificacion.traerEspecificaion(2));
+			servicio.crearServicio("Servicio 3", "Es el servicio 3", 0, 10.50f, prestador.traerPrestador("ghrg"), especificacion.traerEspecificaion(3));
 			servicio.crearServicio("Servicio 4", "Es el servicio 4", 0, 10.50f, prestador.traerPrestador("buenas"), null);
 			servicio.eliminarServicio(servicio.traerServicio("Servicio 2").getIdServicio());
 		} catch (Exception e) {
