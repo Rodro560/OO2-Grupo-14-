@@ -16,7 +16,7 @@ public class TestCliente {
 			int id3 = clienteABM.agregar("nuevo_cliente3@example.com", "pass333", 33333333, "Ricardo", "Vega");
 			int id4 = clienteABM.agregar("nuevo_cliente4@example.com", "pass444", 44444444, "Valentina", "Torres");
 
-			cliente2 = clienteABM.traer(id1);
+			cliente1 = clienteABM.traer(id1);
 			cliente2 = clienteABM.traer(id2);
 			cliente3 = clienteABM.traer(id3);
 			cliente4 = clienteABM.traer(id4);
