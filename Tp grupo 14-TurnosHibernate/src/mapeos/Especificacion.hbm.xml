@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 	<class name="datos.Especificacion" table="especificacion">
@@ -10,7 +9,7 @@
 		<property name="rubro" column="rubro">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">datos.EnumRubro</param>
-				<param name="useOrdinal">false</param>
+				<param name="useNamed">ture</param>
 			</type>
 		</property>
 		<property name="detalles" column="detalles" type="string"/>
