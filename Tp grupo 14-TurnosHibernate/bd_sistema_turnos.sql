@@ -62,11 +62,12 @@ CREATE TABLE `especificacion` (
   `idEspecificacion` int NOT NULL AUTO_INCREMENT,
   `rubro` ENUM('MEDICO', 'MECANICA', 'GASTRONOMIA', 'SERVICIOTECNICO', 'LABORATORIO', 'BELLEZA') NOT NULL,
   `detalles` varchar(200) NOT NULL,
-  `personalInvolucrado` varchar(200)NOT NULL,
-  PRIMARY KEY (`idEspecificacion`)
+  `personalInvolucrado` varchar(200) NOT NULL,
+  `idServicio` int NOT NULL,  -- Nueva columna para la relación con `servicio`
+  PRIMARY KEY (`idEspecificacion`),
+  CONSTRAINT `especificacion_ibfk_1` FOREIGN KEY (`idServicio`) REFERENCES `servicio` (`idServicio`)  -- Clave foránea hacia `servicio`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Table structure for table `perfil`
 --
@@ -112,14 +113,11 @@ CREATE TABLE `servicio` (
   `nombre` varchar(100) NOT NULL,
   `descripcion` text,
   `duracionMin` int NOT NULL,
-  `idUsuario` int NOT NULL, /* hace relacion al prestador */
-  `especificacion_id` int DEFAULT NULL,
+  `idUsuario` int NOT NULL, /* hace relación al prestador */
   `precio` float NOT NULL,
   PRIMARY KEY (`idServicio`),
   KEY `prestador_id` (`idUsuario`),
-  KEY `especificacion_id` (`especificacion_id`),
-  CONSTRAINT `servicio_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `prestador` (`id`),
-  CONSTRAINT `servicio_ibfk_2` FOREIGN KEY (`especificacion_id`) REFERENCES `especificacion` (`idEspecificacion`)
+  CONSTRAINT `servicio_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `prestador` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
