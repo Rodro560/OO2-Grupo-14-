@@ -85,6 +85,30 @@ public class EspecificacionDao {
 		return objeto;
 	}
 	
+	
+	
+	public Especificacion traerEspecificacionExistente(EnumRubro rubro, String detalles, String personalInvolucrado, Servicio servicio) {
+	    Session session = HibernateUtil.getSessionFactory().openSession();
+	    Especificacion resultado = null;
+
+	    try {
+	        Query<Especificacion> query = session.createQuery(
+	            "FROM Especificacion e WHERE e.rubro = :rubro AND e.detalles = :detalles AND e.personalInvolucrado = :personal AND e.servicio = :servicio", 
+	            Especificacion.class
+	        );
+	        query.setParameter("rubro", rubro);
+	        query.setParameter("detalles", detalles);
+	        query.setParameter("personal", personalInvolucrado);
+	        query.setParameter("servicio", servicio);
+
+	        resultado = query.uniqueResult();
+	    } finally {
+	        session.close();
+	    }
+
+	    return resultado;
+	}
+	
 
 	
 
