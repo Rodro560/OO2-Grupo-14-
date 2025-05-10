@@ -24,6 +24,7 @@ public class ServicioABM {
 	}
 	
 	
+	
 	public int crearServicio( String nombre, String descripcion, int duracionMin, float precio, Prestador prestador, Especificacion especificacion) throws Exception {
 		
 		Servicio s= new Servicio( nombre, descripcion, duracionMin, precio, prestador, especificacion);
@@ -115,7 +116,7 @@ public class ServicioABM {
 	}
 	
 	
-	
+
 	public Set<Disponibilidad> traerDisponibilidades(String nombreServicio) throws Exception {
 	    Servicio servicio = dao.traerServicio(nombreServicio);
 
@@ -128,6 +129,32 @@ public class ServicioABM {
 	    }
 
 	    return servicio.getLstDisponibilidad();
+	}
+	
+	
+	
+	public Set<Disponibilidad> traerDisponibilidadesConTurnos(String nombreServicio) throws Exception {
+	    Servicio servicio = dao.traerPorNombreConDisponibilidadesYTurnos(nombreServicio);
+
+	    if (servicio == null) {
+	        throw new Exception("No se encontró un servicio con nombre: " + nombreServicio);
+	    }
+
+	    if (servicio.getLstDisponibilidad().isEmpty()) {
+	        throw new Exception("El servicio no tiene disponibilidades asignadas.");
+	    }
+
+	    return servicio.getLstDisponibilidad(); // cada disponibilidad incluirá sus turnos
+	}
+	
+	
+	
+	public Disponibilidad traerDisponibilidadConTurnos(String nombreServicio, int idDisponibilidad) throws Exception {
+	    Disponibilidad d = dao.traerDisponibilidadConTurnosPorServicio(nombreServicio, idDisponibilidad);
+	    if (d == null) {
+	        throw new Exception("No se encontró la disponibilidad con ID " + idDisponibilidad +" para el servicio '" + nombreServicio + "'");
+	    }
+	    return d;
 	}
 }
 
