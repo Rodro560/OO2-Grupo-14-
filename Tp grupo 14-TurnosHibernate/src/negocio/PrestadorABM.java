@@ -44,7 +44,7 @@ public class PrestadorABM {
 	        throw new Exception("\nYa existe otro Prestador con la razon social: " + p.getRazonSocial());
 	    }
 	    dao.actualizar(p);
-	    System.out.println("\nSe modifico el servicio");
+	    System.out.println("\nSe modifico el prestador");
 	}
 	
 	
