@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import datos.Disponibilidad;
 import datos.Servicio;
 
 public class ServicioDao {
@@ -27,6 +28,8 @@ public class ServicioDao {
 	}
 	
 	
+	
+	
 	public int agregar(Servicio objeto) {
 		int id=0;
 		try {
@@ -41,6 +44,8 @@ public class ServicioDao {
 		return id;
 	}
 	
+	
+	
 	public void actualizar(Servicio objeto) {
 		try {
 			iniciaOperacion();
@@ -52,6 +57,8 @@ public class ServicioDao {
 			session.close();
 		}
 	}
+	
+	
 	
 	public void eliminar(Servicio objeto) {
 		try {
@@ -65,6 +72,8 @@ public class ServicioDao {
 		}
 	}
 	
+	
+	
 	public Servicio traer(long idServicio) {
 		Servicio objeto=null;
 		try {
@@ -75,6 +84,8 @@ public class ServicioDao {
 		} 
 		return objeto;
 	}
+	
+	
 	
 	public Servicio traerServicio(String nombre) {
 	    Servicio servicio = null;
@@ -90,6 +101,8 @@ public class ServicioDao {
 	    return servicio;
 	}
 	
+	
+	
 	public List<Servicio> traerServiciosPorPrestador(int idPrestador) {
 	    List<Servicio> lista = new ArrayList<>();
 	    try {
@@ -104,6 +117,8 @@ public class ServicioDao {
 	    return lista;
 	}
 	
+	
+	
 	public List<Servicio> traerTodos() {
 	    List<Servicio> lista = new ArrayList<>();
 	    try {
@@ -117,6 +132,47 @@ public class ServicioDao {
 	        session.close();
 	    }
 	    return lista;
+	}
+	
+	
+	
+	public Servicio traerPorNombreConDisponibilidadesYTurnos(String nombreServicio) {
+	    Servicio servicio = null;
+	    try {
+	        iniciaOperacion();
+	        String hql = "SELECT DISTINCT s FROM Servicio s "
+	                   + "JOIN FETCH s.lstDisponibilidad d "
+	                   + "LEFT JOIN FETCH d.lstTurnos "
+	                   + "WHERE s.nombre = :nombre";
+	        Query<Servicio> query = session.createQuery(hql, Servicio.class);
+	        query.setParameter("nombre", nombreServicio);
+	        servicio = query.uniqueResult();
+	    } finally {
+	        session.close();
+	    }
+	    return servicio;
+	}
+	
+	
+	
+	public Disponibilidad traerDisponibilidadConTurnosPorServicio(String nombreServicio, int idDisponibilidad) {
+	    Disponibilidad disponibilidad = null;
+	    try {
+	        iniciaOperacion();
+	        String hql = "SELECT d FROM Servicio s " +
+	                     "JOIN s.lstDisponibilidad d " +
+	                     "LEFT JOIN FETCH d.lstTurnos " +
+	                     "WHERE s.nombre = :nombreServicio AND d.idDisponibilidad = :idDisp";
+
+	        Query<Disponibilidad> query = session.createQuery(hql, Disponibilidad.class);
+	        query.setParameter("nombreServicio", nombreServicio);
+	        query.setParameter("idDisp", idDisponibilidad);
+
+	        disponibilidad = query.uniqueResult();
+	    } finally {
+	        session.close();
+	    }
+	    return disponibilidad;
 	}
 
 }
