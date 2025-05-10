@@ -1,9 +1,10 @@
 package datos;
 
 public enum EnumRubro {
-	
-	MECANICA,
     MEDICO,
-    LABORATORIO
-	
+    MECANICA,
+    GASTRONOMIA,
+    SERVICIOTECNICO,
+    LABORATORIO,
+    BELLEZA
 }
