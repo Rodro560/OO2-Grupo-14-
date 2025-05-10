@@ -20,13 +20,12 @@ public class testServicioAbm {
 		ServicioABM servicio= new ServicioABM();
 		PrestadorABM prestador= new PrestadorABM();
 		DisponibilidadABM disponibilidad= new DisponibilidadABM();
-		EspecificacionABM especificacion= new EspecificacionABM();
 		
 		try {
-			servicio.crearServicio("Servicio 1", "Es el servicio 1", 0, 10.50f, prestador.traerPrestador("buenas"), especificacion.traerEspecificaion(1));
-			servicio.crearServicio("Servicio 2", "Es el servicio 2", 0, 10.50f, prestador.traerPrestador("buenas"), especificacion.traerEspecificaion(2));
-			servicio.crearServicio("Servicio 3", "Es el servicio 3", 0, 10.50f, prestador.traerPrestador("ghrg"), especificacion.traerEspecificaion(3));
-			servicio.crearServicio("Servicio 4", "Es el servicio 4", 0, 10.50f, prestador.traerPrestador("buenas"), null);
+			servicio.crearServicio("Servicio 1", "Es el servicio 1", 0, 10.50f, prestador.traerPrestador("buenas"));
+			servicio.crearServicio("Servicio 2", "Es el servicio 2", 0, 10.50f, prestador.traerPrestador("buenas"));
+			servicio.crearServicio("Servicio 3", "Es el servicio 3", 0, 10.50f, prestador.traerPrestador("ghrg"));
+			servicio.crearServicio("Servicio 4", "Es el servicio 4", 0, 10.50f, prestador.traerPrestador("buenas"));
 			servicio.eliminarServicio(servicio.traerServicio("Servicio 2").getIdServicio());
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -56,14 +55,14 @@ public class testServicioAbm {
 		}
 		
 		try {
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(8));
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(9));
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(8));
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(9));
-			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(9));
-			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
-			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(7));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(2));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(3));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(4));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(2));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 3"), disponibilidad.traer(3));
+			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(2));
+			servicio.eliminarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(2));
+			servicio.agregarDisponibilidad(servicio.traerServicio("Servicio 2"), disponibilidad.traer(3));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,7 +89,7 @@ public class testServicioAbm {
 		  System.out.println("\n--- Test mostrarDisponibilidadConTurnos ---");
 	        try {
 	         
-	            Disponibilidad dispo = servicio.traerDisponibilidadConTurnos("Servicio 2", 7);
+	            Disponibilidad dispo = servicio.traerDisponibilidadConTurnos("Servicio 2", 3);
 	            TestUtils.mostrarDisponibilidadConTurnos(dispo);  
 	        } catch (Exception e) {
 	            System.out.println(e.getMessage());
