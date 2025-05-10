@@ -3,17 +3,19 @@ package test;
 import datos.EnumRubro;
 import datos.Especificacion;
 import negocio.EspecificacionABM;
+import negocio.ServicioABM;
 
 public class TestEspecificacionABM {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EspecificacionABM especificacion= new EspecificacionABM();
+		ServicioABM servicio= new ServicioABM();
 		
 		try {
-			especificacion.crearEspecificacion(EnumRubro.MEDICO, "Una especificacion de medico", "Rodrigo" );
-			especificacion.crearEspecificacion(EnumRubro.MECANICA, "Una especificacion de Mecanica", "Rodrigo");
-			especificacion.crearEspecificacion(EnumRubro.LABORATORIO, "Una especificacion de Laboratorio", "Rodrigo");
+			especificacion.crearEspecificacion(EnumRubro.BELLEZA, "Una especificacion de belleza", "Brenda", servicio.traerServicio("Servicio 2") );
+			especificacion.crearEspecificacion(EnumRubro.GASTRONOMIA, "Una especificacion de gastronomia", "Rodrigo", servicio.traerServicio("Servicio 3"));
+			especificacion.crearEspecificacion(EnumRubro.MECANICA, "Una especificacion de Laboratorio", "Nico", servicio.traerServicio("Servicio 4"));
 			especificacion.eliminarEspecificacion(2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
