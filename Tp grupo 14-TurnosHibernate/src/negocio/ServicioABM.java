@@ -25,9 +25,9 @@ public class ServicioABM {
 	
 	
 	
-	public int crearServicio( String nombre, String descripcion, int duracionMin, float precio, Prestador prestador, Especificacion especificacion) throws Exception {
+	public int crearServicio( String nombre, String descripcion, int duracionMin, float precio, Prestador prestador) throws Exception {
 		
-		Servicio s= new Servicio( nombre, descripcion, duracionMin, precio, prestador, especificacion);
+		Servicio s= new Servicio( nombre, descripcion, duracionMin, precio, prestador, null);
 		
 		if(traerServicio(nombre)!= null) {
 			throw new Exception("El nombre ingresado ya esta registrado");
