@@ -1,13 +1,16 @@
 package test;
 
 import java.util.List;
+import java.util.Set;
 
+import datos.Disponibilidad;
 import datos.Prestador;
 import datos.Servicio;
 import negocio.ServicioABM;
 import negocio.DisponibilidadABM;
 import negocio.EspecificacionABM;
 import negocio.PrestadorABM;
+import test.TestUtils;
 
 public class testServicioAbm {
 
@@ -67,13 +70,37 @@ public class testServicioAbm {
 		}
 		
 		try {
-			servicio.traerDisponibilidades("Servicio 2");
+			System.out.println("--- Test traerDisponibilidades ---");
+			Set<Disponibilidad> d =servicio.traerDisponibilidades("Servicio 2");
+			TestUtils.mostrarDisponibilidades(d);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		System.out.println("\n--- Test traerDisponibilidadesConTurnos ---");
+		try {
+			Set<Disponibilidad> disp = servicio.traerDisponibilidadesConTurnos("Servicio 3");
+			TestUtils.mostrarDisponibilidadesConTurnos(disp);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		  System.out.println("\n--- Test mostrarDisponibilidadConTurnos ---");
+	        try {
+	         
+	            Disponibilidad dispo = servicio.traerDisponibilidadConTurnos("Servicio 2", 7);
+	            TestUtils.mostrarDisponibilidadConTurnos(dispo);  
+	        } catch (Exception e) {
+	            System.out.println(e.getMessage());
+	        }
+	    }
+		
+
+		
+		
 
 	}
 
-}
+
