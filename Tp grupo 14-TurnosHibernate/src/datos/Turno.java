@@ -15,10 +15,9 @@ public class Turno {
 	
 	public Turno() {}
 
-	public Turno(int idTurno, LocalDate fecha, LocalTime hora, EstadoTurno estado, Cliente cliente,
+	public Turno(LocalDate fecha, LocalTime hora, EstadoTurno estado, Cliente cliente,
 			Disponibilidad disponibilidad, Servicio servicio) {
 		super();
-		this.idTurno = idTurno;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.estado = estado;

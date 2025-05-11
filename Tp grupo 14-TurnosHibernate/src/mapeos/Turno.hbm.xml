@@ -6,19 +6,18 @@
 		<id name="idTurno" column="id">
 			<generator class="identity" />
 		</id>
-		<property name="fecha" column="fecha" type="date" />
-		<property name="hora" column="hora" type="time" />
+		<property name="fecha" column="fecha" type="java.time.LocalDate"/>
+		<property name="hora" column="hora" type="java.time.LocalTime"/>
+
 		<property name="estado" column="estado">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">datos.EstadoTurno</param>
-				<param name="useName">true</param>
+				<param name="useNamed">true</param>
 			</type>
 		</property>
 		<many-to-one name="cliente" class="datos.Cliente" column="cliente_id"
 			not-null="true" />
-		<many-to-one name="disponibilidad" class="datos.Disponibilidad"
-			column="disponibilidad_id" not-null="true" insert="false"
-			update="false" />
+		<many-to-one name="disponibilidad" class="datos.Disponibilidad" column="disponibilidad_id" not-null="true" insert="false" update="false" />
 		<many-to-one name="servicio" class="datos.Servicio" column="servicio_id"
 			not-null="true" />
 	</class>
