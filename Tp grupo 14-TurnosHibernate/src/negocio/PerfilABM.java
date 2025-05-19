@@ -18,7 +18,7 @@ public class PerfilABM {
 
         if (perfil == null) {
             session.close();
-            throw new Exception("❌ Error: No se encontró un perfil con ID " + idPerfil);
+            throw new Exception("Error: No se encontró un perfil con ID " + idPerfil);
         }
 
         // Inicializar usuario antes de devolver el perfil
@@ -33,12 +33,12 @@ public class PerfilABM {
         Cliente cliente = clienteABM.traer(idCliente); // Buscar cliente por ID
 
         if (cliente == null) {
-            throw new Exception("❌ Error: No existe un cliente con ID " + idCliente);
+            throw new Exception("Error: No existe un cliente con ID " + idCliente);
         }
 
-        Perfil perfil = new Perfil(telefono, direccion, cliente); // Usar `Cliente` en lugar de `Usuario`
+        Perfil perfil = new Perfil(telefono, direccion, cliente);
         perfilDao.guardarPerfil(perfil);
-        System.out.println("✅ Perfil creado correctamente!");
+        System.out.println("Perfil creado correctamente!");
 
         return perfil;
     }
@@ -47,10 +47,10 @@ public class PerfilABM {
         Perfil perfil = perfilDao.obtenerPerfilPorId(idPerfil);
         
         if (perfil == null) {
-            throw new Exception("❌ Error: No se encontró un perfil con ID " + idPerfil);
+            throw new Exception("Error: No se encontró un perfil con ID " + idPerfil);
         }
 
-        // Solo actualizar si los valores no son nulos ni vacíos
+        // Solo actualizar si los valores no son nulos ni vacios
         if (telefono != null && !telefono.trim().isEmpty()) {
             perfil.setTelefono(telefono);
         }
@@ -59,7 +59,7 @@ public class PerfilABM {
         }
 
         perfilDao.modificarPerfil(perfil);
-        System.out.println("✅ Perfil actualizado correctamente!");
+        System.out.println("Perfil actualizado correctamente!");
 
         return perfil;
     }
@@ -90,6 +90,6 @@ public class PerfilABM {
 
     public void eliminarPerfil(int idPerfil) throws Exception {
         perfilDao.eliminarPerfil(idPerfil);
-        System.out.println("✅ Perfil eliminado correctamente.");
+        System.out.println("Perfil eliminado correctamente.");
     }
 }
